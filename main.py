@@ -73,6 +73,10 @@ while not game_over:
         x += 0.5 * dt
     if pressed[K_SPACE]:
         ball_served = True
+    if paddle_rect[0] < 0:
+        x = 0
+    if paddle_rect[0] > screen.get_width() - paddle_rect[2]:
+        x = screen.get_width() - paddle_rect[2]
     paddle_rect[0] = x
 
     if (paddle_rect[0] <= ball_rect[0] <= (paddle_rect[0] + paddle_rect[2]) and
